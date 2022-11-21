@@ -1,0 +1,17 @@
+.menus {
+  background-color: #f6f6f6;
+}
+.menus h2 {
+  margin-bottom: 2rem;
+}
+.menus .menus__cards {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.menus .card {
+  border: 1px solid black;
+}
+.menus .card .card__image {
+  background-image: url("/assets/images/restaurants/menu-1.jpg");
+}/*# sourceMappingURL=menus.css.map */

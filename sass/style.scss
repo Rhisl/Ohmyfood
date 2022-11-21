@@ -1,0 +1,108 @@
+@use "./sass/base.scss";
+@use "./layout/header";
+@use "./layout/city";
+@use "./layout/explorer";
+@use "./layout/tuto";
+@use "./layout/menus.scss";
+
+
+main {
+    padding: 0 1rem;
+}
+
+
+main .city {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    background-color: #f3f3f3; 
+    text-align: center;
+    padding: 0.5rem;
+}
+
+main .city i {
+    font-size: 1.5rem;
+}
+
+
+.loader {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    background-color: #ffffff;
+    height: 100vh;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.9;
+    animation: disappear 200ms 3s forwards;
+    transform-origin: top;
+  }
+  .loader::after {
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #9356dc;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out;
+    animation-iteration-count: 3;
+  }
+  
+  @keyframes disappear {
+    to {
+      transform: scale(0);
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .tuto {
+    counter-reset: steps;
+    
+    & ol {
+    display: flex;
+    gap: 1rem;
+    @media (max-width: 800px) {
+    flex-direction: column;
+    }
+}
+
+    & li {
+        
+    background-color: #f6f6f6;
+    padding: 1.5rem 2rem;
+    flex-grow: 1;
+    border-radius: 1rem;
+    &:hover{
+    box-shadow: 2px 1px 8px -3px #7e7e7e;
+}
+
+.tuto li::before {
+    content: counter(steps);
+    counter-increment: steps;
+    color: white;
+    background-color: #9356dc;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    transform: translateY(-50%);
+}
+  
+.tuto li:hover {
+    transform: scale(1.02);
+}
+.tuto li i.fas {
+    color: blue;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+    }
+}
